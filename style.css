@@ -13,7 +13,7 @@ body {
 
 .container {
     margin: 100px auto 0;
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     transform: perspective(3500px) rotate3d(0, 1, 0, 50deg);
@@ -27,17 +27,22 @@ body {
     background-position: center;
 }
 
-/* .result:hover {
+.result:hover {
     transform: scale(1.1);
-    z-index: 5;
+    /* z-index: 5;
     &:before { opacity: 1; }
-    .result__text { transform: translateY(0);
-} */
+    .result__text { transform: translateY(0); */
+}
 
+.result.blur {
+    filter: blur(8px);
+}
+
+/* Video Player */
 .media {
     position: absolute;
-    top: 150px;
-    right: 200px;
+    top: 100px;
+    right: 50px;
     width: 450px;
     z-index: 10;
     opacity: 1;
@@ -50,12 +55,86 @@ body {
     opacity: 0;
 }
 
+/* Video Player Size */
 .media video {
-    width: 100%
+    width: 100%;
 }
-
+/* Track Title on Player */
 .media p {
     text-align: center;
     font-size: 1.2rem;
     padding: 10px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+}
+
+.overlay.blur {
+    display: block;
+}
+
+/* Artist image from iTunes API */
+.artist {
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#search {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    transition: all 1s ease;
+    position: absolute;
+    bottom: 225px;
+    right: 75px;
+}
+
+#search:focus {
+    bottom: 50%;
+    right: 50%;
+    transform: scale(2) translate(-50%, -50%);
+}
+
+/* Scales results down on mobile and removes rotate effect */ 
+@media screen and (max-width: 580px) { 
+.artist { 
+    position: relative; 
+    bottom: 0; 
+    right: 0; 
+    width: 150px; 
+    margin: 50px auto 0 auto; 
+} 
+
+#search { 
+    position: static; 
+    margin: 1rem auto; 
+} 
+
+#search:focus { 
+    bottom: 225px;
+    right: 75px;
+    transform: translate(0, 0) scale(2);
+}
+
+.container {
+    margin: 0;
+    width: 100%;
+    transform: rotate3d(0, 0, 0, 0deg);
+    justify-content: space-evenly; 
+}
 }
