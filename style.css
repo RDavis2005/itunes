@@ -109,3 +109,32 @@ body {
     right: 50%;
     transform: scale(2) translate(-50%, -50%);
 }
+
+/* Scales results down on mobile and removes rotate effect */ 
+@media screen and (max-width: 580px) { 
+.artist { 
+    position: relative; 
+    bottom: 0; 
+    right: 0; 
+    width: 150px; 
+    margin: 50px auto 0 auto; 
+} 
+
+#search { 
+    position: static; 
+    margin: 1rem auto; 
+} 
+
+#search:focus { 
+    bottom: 225px;
+    right: 75px;
+    transform: translate(0, 0) scale(2);
+}
+
+.container {
+    margin: 0;
+    width: 100%;
+    transform: rotate3d(0, 0, 0, 0deg);
+    justify-content: space-evenly; 
+}
+}
