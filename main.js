@@ -53,5 +53,7 @@ overlay.addEventListener('click', closeMedia);
 searchElem.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         getContent(searchElem.value);
+        searchElem.blur();
+        // toggleOverlay();
     }
 });
